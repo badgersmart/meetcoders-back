@@ -1,0 +1,18 @@
+raise "Ruby versions less than 2.2.2 are unsupported!" if RUBY_VERSION < "2.2.2"
+
+source 'https://rubygems.org'
+
+gem "pg",                      "~>0.18.2",          :require => false
+
+group :test do
+  gem "camcorder",                    :require => false
+  gem "coveralls",                    :require => false
+  gem "jasmine",       "~>2.4.0",     :require => false
+  gem "phantomjs",     "=1.9.8.0",    :require => false
+  gem "rspec",         "~>3.5.0",     :require => false
+  gem "test-unit",                    :require => false
+  gem "timecop",       "~>0.7.3",     :require => false
+  gem "vcr",           "~>3.0.0",     :require => false
+  gem "webmock",       "~>1.12",      :require => false
+  gem "xml-simple",    "~>1.1.0",     :require => false  # Used by test/xml/tc_xmlhash_methods.rb
+end
