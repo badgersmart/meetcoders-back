@@ -9,13 +9,6 @@ env:
   - RUBY_GC_HEAP_INIT_SLOTS=600000
   - RUBY_GC_HEAP_GROWTH_FACTOR=1.25
   - PARALLEL_TEST_PROCESSORS=2
-  matrix:
-  - TEST_SUITE=vmdb PARALLEL=true
-  - TEST_SUITE=automation
-  - TEST_SUITE=migrations
-  - TEST_SUITE=brakeman
-  - TEST_SUITE=replication
-  - GEM=pending
 matrix:
   fast_finish: true
 addons:
@@ -25,6 +18,13 @@ before_install:
 before_script:
 - source ${TRAVIS_BUILD_DIR}/tools/ci/before_script.sh
 script:
-- bundle exec rake ${TEST_SUITE+test:$TEST_SUITE}
+- bundle exec rspec
 after_script:
 - source ${TRAVIS_BUILD_DIR}/tools/ci/after_script.sh
+notifications:
+  webhooks:
+    urls:
+    - ttps://webhooks.gitter.im/e/698e5e63a7c8d06717b2
+    on_success: change
+    on_failure: always
+    on_start: never
