@@ -7,7 +7,7 @@ if [[ -n "${GEM}" ]] ; then
   cd gems/${GEM}
 else
   cp config/database.pg.yml config/database.yml
-  psql -c "CREATE USER meetcoders SUPERUSER PASSWORD 'smartcoder';" -U postgres
+  psql -c "CREATE USER root SUPERUSER PASSWORD 'smartvm';" -U postgres
   export BUNDLE_WITHOUT=development
 fi
 export BUNDLE_GEMFILE=${PWD}/Gemfile

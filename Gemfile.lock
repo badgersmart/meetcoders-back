@@ -99,6 +99,7 @@ GEM
       parallel
     parser (2.3.1.2)
       ast (~> 2.2)
+    pg (0.18.4)
     pkg-config (1.1.7)
     powerpack (0.1.1)
     puma (3.6.0)
@@ -208,6 +209,7 @@ DEPENDENCIES
   good_migrations
   listen (~> 3.0.5)
   parallel_tests
+  pg (~> 0.18.2)
   puma (~> 3.0)
   rails (~> 5.0.0)
   rspec-rails (~> 3.5.0)
