@@ -10,10 +10,8 @@ addons:
   postgresql: '9.5'
 env:
   - TEST_SUITE=rspec
-  - TEST_SUITE=rubocop
-  - TEST_SUITE='haml-lint app/views/'
 script:
-- bin/$TEST_SUITE
+- bin/rspec
 bundler_args: --binstubs=./bundler_stubs
 notifications:
   webhooks:
