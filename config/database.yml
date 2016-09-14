@@ -11,6 +11,11 @@
 #     This can be silenced with min_messages: warning
 ############################################################################################################
 ---
+default: &default
+  adapter: sqlite3
+  pool: 5
+  timeout: 5000
+
 base: &base
   adapter: postgresql
   encoding: utf8
@@ -20,15 +25,13 @@ base: &base
   min_messages: warning
 
 development:
-  <<: *base
-  database: meetcoders_development
-  min_messages: notice
+  <<: *default
+  database: db/development.sqlite3
+
+test:
+  <<: *default
+  database: db/test.sqlite3
 
 production:
   <<: *base
   database: meetcoders_production
-
-test: &test
-  <<: *base
-  pool: 3
-  database: meetcoders_test<%= ENV['TEST_ENV_NUMBER'] %>
